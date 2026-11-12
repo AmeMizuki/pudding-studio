@@ -17,6 +17,8 @@ npm run build
 npm run preview
 ```
 
+推送至 `master` 後，GitHub Actions 會建置並部署至 [GitHub Pages](https://amemizuki.github.io/pudding-studio/)。
+
 ## 使用方式
 
 1. 上傳或拖入 PNG、JPEG、WebP；也能直接使用內建的程式繪製布丁示範圖。
