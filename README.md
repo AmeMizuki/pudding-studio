@@ -16,8 +16,6 @@ npm run check
 npm run build
 npm run preview
 ```
-GitHub Actions 會在推送及 Pull Request 時執行 `npm run check` 和 `npm run build`。
-
 
 ## 使用方式
 
@@ -41,10 +39,3 @@ GitHub Actions 會在推送及 Pull Request 時執行 `npm run check` 和 `npm r
 - GIF 設為無限循環。每個區域的頻率會四捨五入成動畫長度內的整數循環，預覽與匯出首尾完全吻合；離錨點越遠相位越晚，形成向外傳遞。預覽速度只影響預覽，不改變匯出。
 - 每區域使用長邊最多 512 格的 0–255 強度遮罩（需支援 4096 px 紋理的 GPU），保留圖片比例與未填刷區域；不是背景修補或去背工具。筆刷大小、幅度與距離以 960px 參考寬度等比例計算。區域顏色跟隨變形後的內容移動。
 - 更換圖片會清除區域與復原記錄。此版本不會跨重新整理保存專案。
-
-## 結構
-
-- `src/App.svelte`：雙語畫筆工作台、依第一筆決定的錨點、多區域塗刷判定、錨點拖曳、復原記錄。
-- `src/lib/brush.js`：強度遮罩、硬邊圓形筆刷與單筆上限、減弱、幾何變換、向外柔化的運動場與錨點範圍。
-- `src/lib/renderer.js`：GPU 四種局部變形、方向、筆刷內錨點權重衰減、整數循環與區域權重顏色；預覽與匯出共用。`motion.js` 保留共同常數、區域色盤與內建示範圖的遮罩填入。
-- `src/lib/exporter.js`、`gif-worker.js`：本機 WebM／GIF 編碼、進度與取消。
